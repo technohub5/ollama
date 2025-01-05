@@ -1,0 +1,58 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: jmorganca <jmorganca@gmail.com>
+Date: Sat, 4 Jan 2025 22:52:48 -0800
+Subject: [PATCH] re-enable gpu for clip
+
+---
+ examples/llava/clip.cpp | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
+diff --git a/examples/llava/clip.cpp b/examples/llava/clip.cpp
+index b3c1829f..ea2b84b6 100644
+--- a/examples/llava/clip.cpp
++++ b/examples/llava/clip.cpp
+@@ -8,25 +8,25 @@
+ #include "ggml-alloc.h"
+ #include "ggml-backend.h"
+ 
+-//#ifdef GGML_USE_CUDA
+-//#include "ggml-cuda.h"
+-//#endif
+-//
+-//#ifdef GGML_USE_SYCL
+-//#include "ggml-sycl.h"
+-//#endif
+-//
+-//#ifdef GGML_USE_METAL
+-//#include "ggml-metal.h"
+-//#endif
+-//
+-//#ifdef GGML_USE_CANN
+-//#include "ggml-cann.h"
+-//#endif
+-//
+-//#ifdef GGML_USE_VULKAN
+-//#include "ggml-vulkan.h"
+-//#endif
++#ifdef GGML_USE_CUDA
++#include "ggml-cuda.h"
++#endif
++
++#ifdef GGML_USE_SYCL
++#include "ggml-sycl.h"
++#endif
++
++#ifdef GGML_USE_METAL
++#include "ggml-metal.h"
++#endif
++
++#ifdef GGML_USE_CANN
++#include "ggml-cann.h"
++#endif
++
++#ifdef GGML_USE_VULKAN
++#include "ggml-vulkan.h"
++#endif
+ 
+ #define STB_IMAGE_IMPLEMENTATION
+ #include "stb_image.h"
